@@ -2,9 +2,13 @@
 
 This project is used to Archestrate conatainers 
 
+Mesos + marathon + zookeeper installation and set up on single node
+----------------------------------------------------------------------
+http://www.swisspush.org/clustering/2014/12/05/install-mesos-on-singlenode
 
-microk8s installation and setup
-----------------------------------
+
+microk8s installation and setup on single node
+-----------------------------------------------------
 https://thenewstack.io/deploy-a-single-node-kubernetes-instance-in-seconds-with-microk8s/
 
 https://github.com/kubernetes/kubernetes/issues/37922
