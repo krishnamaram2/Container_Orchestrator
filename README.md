@@ -2,6 +2,11 @@
 
 This project is used to Archestrate conatainers 
 
+
+microk8s installation and setup
+----------------------------------
+https://thenewstack.io/deploy-a-single-node-kubernetes-instance-in-seconds-with-microk8s/
+
 https://github.com/kubernetes/kubernetes/issues/37922
 
 
