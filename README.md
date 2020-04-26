@@ -1,5 +1,44 @@
 # Project Title
 
+
+
+docker run -d -p 2181:2181 --name zookeeper zookeeper:3.4.11
+
+
+
+
+docker run -dit --name mesos-master1 -p 5050:5050 --link zookeeper -e MESOS_ZK=zk://zookeeper:2181/mesos -e MESOS_QUORUM=1 -e MESOS_CLUSTER=docker-compose -e MESOS_HOSTNAME=localhost -e MESOS_WORK_DIR=/var/tmp/mesos -e MESOS_LOG_DIR=/var/log/mesos mesosphere/mesos-master:1.4.1
+
+
+
+
+docker run -dit --name mesos-slave6 -p 5051:5051 --link zookeeper:zookeeper --link mesos-master1:mesos-master1 -e MESOS_MASTER=zk://localhost:2181/mesos -e MESOS_CONTAINERIZERS=docker  -e MESOS_PORT=5051 -e MESOS_RESOURCES=ports:[11000-11999] -e MESOS_HDDDOSTNAME=localhost -e MESOS_WORK_DIR=/var/tmp/mesos -e MESOS_LOG_DIR=/var/log/mesos -e MESOS_SYSTEMD_ENABLE_SUPPORT="false" --volume=/var/run/dockerDDD.sock:/var/run/docker.sock  mesosphere/mesos-slave:1.4.1
+
+
+docker run -dit --name marathon1 -p 8080:8080 --link zookeeper:zookeeper --link mesos-master1:mesos-master1 -e MARATHON_ZK=zk://localhost:2181/marathon  -e MESOS_MASTER=zk://localhost:2181/mesos mesosphere/marathon:v1.5.6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 docker run -it --entrypoint=/bin/bash mesosphere/marathon -s
 
 
