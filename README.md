@@ -1,13 +1,14 @@
 # Project Title
 
 This project is used to Archestrate conatainers 
+https://www.digitalocean.com/community/tutorials/an-introduction-to-mesosphere
 
 Installation and set up
 ========================
 
 
 Mesos-master
-
+http://mesos.apache.org/documentation/latest/binary-packages/
 
 
 
@@ -16,11 +17,13 @@ Mesos-slave
 
 
 Marathon
-
+https://mesosphere.github.io/marathon/docs/
 
 
 Zookeeper
-
+https://wpcademy.com/how-to-install-apache-zookeeper-on-centos-7/
+https://zookeeper.apache.org/releases.html#download
+https://zookeeper.apache.org/doc/r3.6.0/zookeeperStarted.html#sc_Download
 
 
 
