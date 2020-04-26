@@ -1,6 +1,11 @@
 # Project Title
 
 This project is used to Archestrate conatainers 
+
+https://www.youtube.com/watch?v=QRyZdfZV0mU
+
+https://linuxacademy.com/guide/28039-container-orchestration-using-mesos-and-marathon/
+
 https://www.digitalocean.com/community/tutorials/an-introduction-to-mesosphere
 
 Installation and set up
