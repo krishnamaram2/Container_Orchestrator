@@ -2,11 +2,44 @@
 
 This project is used to Archestrate conatainers 
 
+Installation and set up
+========================
+
+
+Mesos-master
+
+
+
+
+Mesos-slave
+
+
+
+Marathon
+
+
+
+Zookeeper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Mesos + marathon + zookeeper installation and set up on single node
 ----------------------------------------------------------------------
 http://www.swisspush.org/clustering/2014/12/05/install-mesos-on-singlenode
 https://www.digitalocean.com/community/tutorials/how-to-configure-a-production-ready-mesosphere-cluster-on-ubuntu-14-04
-
 
 microk8s installation and setup on single node
 -----------------------------------------------------
