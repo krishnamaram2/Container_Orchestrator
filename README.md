@@ -1,5 +1,8 @@
 # Project Title
 
+docker run -it --entrypoint=/bin/bash mesosphere/marathon -s
+
+
 This project is used to Archestrate conatainers 
 
 https://www.youtube.com/watch?v=QRyZdfZV0mU
