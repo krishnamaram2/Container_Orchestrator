@@ -1,6 +1,7 @@
 # Project Title
 
 
+https://www.youtube.com/watch?v=QRyZdfZV0mU
 
 docker run -d -p 2181:2181 --name zookeeper zookeeper:3.4.11
 
@@ -44,7 +45,6 @@ docker run -it --entrypoint=/bin/bash mesosphere/marathon -s
 
 This project is used to Archestrate conatainers 
 
-https://www.youtube.com/watch?v=QRyZdfZV0mU
 
 https://linuxacademy.com/guide/28039-container-orchestration-using-mesos-and-marathon/
 
