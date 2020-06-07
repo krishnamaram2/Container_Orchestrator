@@ -5,6 +5,17 @@ This project implemented to touch and feel of Micro Services architecture with c
 Kubernetes installation and set up with kubeadm
 ==========================================================
 
+
+Master
+
+
+
+Worker
+
+
+
+
+
 Step 1: install docker on all machines
 
 https://kubernetes.io/docs/setup/production-environment/container-runtimes/#docker
