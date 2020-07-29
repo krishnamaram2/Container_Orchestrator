@@ -71,7 +71,7 @@ echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables(if kubeadm is not working)
 
 step 4:
 
-mkdir -p $HOME/.kube
+  mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
