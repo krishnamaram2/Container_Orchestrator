@@ -6,25 +6,18 @@ This project implemented to touch and feel of Micro Services architecture with c
 Single node K8S cluster with kubeadm
 =====================================
 
+Step 1: install and setup Constainer Runtime
 
-### Install required packages
-yum install -y yum-utils device-mapper-persistent-data lvm2
+$yum install -y yum-utils device-mapper-persistent-data lvm2
 
-## Add the Docker repository
-yum-config-manager --add-repo \
-  https://download.docker.com/linux/centos/docker-ce.repo
+$yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
-# Install Docker CE
-yum update -y && yum install -y \
-  containerd.io-1.2.13 \
-  docker-ce-19.03.11 \
-  docker-ce-cli-19.03.11
+$yum update -y && yum install -y containerd.io-1.2.13 docker-ce-19.03.11 docker-ce-cli-19.03.11
 
-## Create /etc/docker
-mkdir /etc/docker
+$mkdir /etc/docker
 
-# Set up the Docker daemon
-cat > /etc/docker/daemon.json <<EOF
+$vi daemon.json
+
 {
   "exec-opts": ["native.cgroupdriver=systemd"],
   "log-driver": "json-file",
@@ -36,15 +29,13 @@ cat > /etc/docker/daemon.json <<EOF
     "overlay2.override_kernel_check=true"
   ]
 }
-EOF
 
-## create diectory /etc/systemd/system/docker.service.d
-mkdir -p /etc/systemd/system/docker.service.d
+$mkdir -p /etc/systemd/system/docker.service.d
 
-# Restart Docker and enable docker
-systemctl daemon-reload
-systemctl restart docker
-sudo systemctl enable docker
+
+$systemctl daemon-reload
+$systemctl restart docker
+$sudo systemctl enable docker
 
 
 
