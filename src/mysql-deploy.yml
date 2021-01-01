@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  my-deployment
+  name:  mysql-deployment
 spec:
-  replicas: 3
+  replicas: 2
   minReadySeconds: 2
   strategy:
     type: RollingUpdate
@@ -12,16 +12,15 @@ spec:
       maxSurge: 1
   selector:
     matchLabels:
-      app: nginx
+      app: mysql
   template:
     metadata:
       labels:
-        app: nginx
+        app: mysql
     spec:
       hostNetwork: true
       containers:
-      - name: my-web
-        #image: nginx
-        image: httpd
+      - name: mysql
+        image: csporg/mysql
         ports:
         - containerPort: 80
