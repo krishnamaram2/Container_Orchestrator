@@ -10,6 +10,8 @@ $cd container-orchestrator/src/mysql
 
 $kubectl create -f mysql-pod.yml
 
+$kubectl create -f mysql-svc.yml
+
 
 
 Single node K8S cluster with kubeadm
