@@ -9,5 +9,8 @@ spec:
      containers:
      - name: mysql 
        image: csporg/mysql
+       env:
+       - name: MYSQL_ROOT_PASSWORD
+         value: Root_123
        ports:
        - containerPort: 3306

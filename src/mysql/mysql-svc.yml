@@ -8,6 +8,6 @@ spec:
    type: NodePort
    ports:
    - name: mysql
-     port: 5001
+     port: 3306
      nodePort: 30001
      protocol: TCP
