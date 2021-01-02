@@ -21,6 +21,6 @@ spec:
       hostNetwork: true
       containers:
       - name: mysql
-        image: csporg/mysql
+        image: csporg/mysql:master_1
         ports:
         - containerPort: 80
