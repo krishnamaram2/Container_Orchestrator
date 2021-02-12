@@ -14,6 +14,63 @@ $kubectl create -f mysql-svc.yml
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Old Info
+==================
+
+
 Single node K8S cluster with kubeadm
 =====================================
 
