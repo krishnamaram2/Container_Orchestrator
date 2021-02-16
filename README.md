@@ -12,6 +12,16 @@ $kubectl create -f mysql-pod.yml
 
 $kubectl create -f mysql-svc.yml
 
+$kubectl create -f mysql-deploy.yml
+
+$cd container-orchestrator/src/flask
+
+$kubectl create -f flask-pod.yml
+
+$kubectl create -f flask-svc.yml
+
+$kubectl create -f flask-deploy.yml
+
 
 
 
