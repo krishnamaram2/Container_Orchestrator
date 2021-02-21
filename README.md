@@ -30,3 +30,24 @@ $kubectl create -f flask-pod.yml
 $kubectl create -f flask-svc.yml
 
 $kubectl create -f flask-deploy.yml
+
+
+
+to list containers in flask pod
+
+kubectl describe pod/flask-pod
+
+to login to flask container
+
+kubectl exec -it flask-pod --container flask -- /bin/bash
+
+
+
+to list containers in  mysql pod
+
+kubectl describe pod/mysql-pod
+
+to login to mysql container
+
+kubectl exec -it mysql-pod --container mysql -- /bin/bash
+
