@@ -4,7 +4,7 @@ metadata:
    name: flask-svc
 spec:
    selector:
-     server: db
+     server: app
    type: NodePort
    ports:
    - name: flask
