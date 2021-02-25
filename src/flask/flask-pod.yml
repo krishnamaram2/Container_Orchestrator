@@ -4,7 +4,7 @@ metadata:
     name: flask-pod
     labels: 
       env: dev
-      server: db
+      server: app
 spec:
      containers:
      - name: flask 
