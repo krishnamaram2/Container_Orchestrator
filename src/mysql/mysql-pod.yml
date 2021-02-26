@@ -4,7 +4,7 @@ metadata:
     name: mysql-pod
     labels: 
       env: dev
-      server: app
+      server: db
 spec:
      containers:
      - name: mysql 
