@@ -4,7 +4,7 @@ metadata:
    name: mysql-svc
 spec:
    selector:
-     server: app
+     server: db
    type: NodePort
    ports:
    - name: mysql
