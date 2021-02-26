@@ -10,4 +10,4 @@ spec:
      - name: flask 
        image: csporg/flask:master_1
        ports:
-       - containerPort: 5501
+       - containerPort: 5001
