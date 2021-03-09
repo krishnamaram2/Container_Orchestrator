@@ -1,0 +1,166 @@
+Terminology
+ Pods(automatic unit of scheduling)
+ Services(stable networking)
+  Replication controller(scale pods,desired state)
+   Replica sets
+Kubectl(client)
+Deployments=> rc + rolling updates, roll back
+Master components
+Cluster store(database/memory)
+Kube-scheduler(creation of containers will be don)
+Kube-controller-manager(maintaining state)
+Kube-apiserver(for all external communication)
+
+Node components
+Kubelet(agent)
+Kubeproxy(manage networking)
+Container engine(docker)
+
+
+
+What is pod vs service?
+=>pod is a physical entity
+=>pod have ip
+=>service is a logical entity
+=>service has ip address and dns-db.myservice
+=>service use the concept called label
+7.what is the difference between ReplicationController and ReplicationSet?
+ReplicationController=>how many replicas do you want
+rc= pods * n
+What is service vs deployment?
+=>what is that you want in a pod gol:1.0 8080
+=>ask how many pods you want
+=>save it with some version
+=>strategy
+create 1 new pod
+remove 1 old pod
+=>there is no downtime
+=>deployment and rc both are doing same but deployment maintains revisions
+=>ReplicationSets are created(it remember old state, it can store and maintain the state)
+
+
+
+
+Kubeadm installation
+Master=>
+Step 1: install docker runtine
+Step 2:install kubeadm,kubectl,kubelet
+Step 3: kubeadm init(to make this node a master)
+Step 4: create virtual network i.e weave net(it is responsible to create pod network on multiple nodes
+Woker=>
+Step 1 and 2 repeat
+Step 3: join worker to cluster
+Kubeadm join 
+
+
+
+
+$vi pod.yml
+apiVersion: v1
+kind: Pod (kind tells what is that you want to create like Pod)
+metadata:             (information about pod like name of pod is my-pod)
+    name: web-pod
+    labels:
+      env: test
+      server: web 
+spec:                    =>specifications=> to specify any kubernetes objects
+    containers:
+    - name: tomcat
+      image: tomcat
+      ports:
+      - containerPort:8080
+
+
+
+
+vi rc.yml
+apiVersion: v1
+kind: ReplicationController
+metadata:
+ name: myrc
+spec:
+    replicas: 2
+    selector: (the way of telling label)
+      server: web
+    template: =>template describe about pod (if one object has in other object that is called as template)
+      metadata:
+        labels:
+           env: Test
+           server: web
+      spec:
+         containers:
+         - name: nginx
+           image: nginx
+           ports:
+           - containerPort: 80
+           
+           
+           
+           
+           
+           vi svc.yml
+apiVersion: v1
+kind: Service
+metadata:
+   name: simple-svc
+spec:
+   selector:(will ask all the pods which are running with web)
+     server: web
+   type: NodePort
+   ports:
+   - name: http
+     port: 80 (service uses port 80)
+     nodePort: 30001 (this is exposed at node level)
+     protocol: TCP
+
+
+
+
+
+vi deployment.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  my-deployment
+spec:
+  replicas: 3
+  minReadySeconds: 20(to bring the pod in how many seconds, we have to put this according application)
+  strategy: (how to deploy means to kill old version and make run new version)
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:(the way of telling label)
+    matchLabels:
+      app: tomcat
+  template:(is nothing but pod)
+    metadata:
+      labels:
+        app: tomcat
+    spec:
+      hostNetwork: true
+      containers:
+      - name: web
+        image: tomcat
+        
+        ports:
+        - containerPort: 80
+
+
+
+
+
+Commands
+$kubectl apply -f deploy.yml --record (--record is used to store version)
+$kubectl get deploy
+$kubectl get rs
+$kubectl get pods
+fot testing
+public-ip:80
+image: nginx
+#image: httpd
+after change in deploy.yml file
+$kubectl apply -f deploy.yml --record
+$kubectl rollout status deployments my-deployment
+$kubectl get deploy my-deployment
+$kubectl rollout history deployments my-deployment
