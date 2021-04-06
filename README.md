@@ -15,39 +15,11 @@ $mv kubectl /usr/bin
 
 $git clone https://github.com/krishnamaram2/container-orchestrator.git
 
-$cd container-orchestrator/src/mysql
-
-$kubectl create -f mysql-pod.yml
-
-$kubectl create -f mysql-svc.yml
-
-$kubectl create -f mysql-deploy.yml
-
 $cd container-orchestrator/src/flask
 
-$kubectl create -f flask-pod.yml
-
-$kubectl create -f flask-svc.yml
-
-$kubectl create -f flask-deploy.yml
+$kubectl create -f flask-deployment.yaml
 
 
+$cd container-orchestrator/src/mysql
 
-to list containers in flask pod
-
-kubectl describe pod/flask-pod
-
-to login to flask container
-
-kubectl exec -it flask-pod --container flask -- /bin/bash
-
-
-
-to list containers in  mysql pod
-
-kubectl describe pod/mysql-pod
-
-to login to mysql container
-
-kubectl exec -it mysql-pod --container mysql -- /bin/bash
-
+$kubectl create -f mysql-deployment.yaml
